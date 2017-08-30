@@ -1,0 +1,14 @@
+{
+  "name": "leaflet-map",
+  "version": "0.1.0",
+  "description": "Leaflet map web component",
+  "main": "index.js",
+  "repository": "https://github.com/ggcity/leaflet-map",
+  "author": "Rachot Moragraan",
+  "license": "GPL-3.0",
+  "flat": true,
+  "dependencies": {
+    "@polymer/polymer": "next",
+    "leaflet": "^1.2.0"
+  }
+}
