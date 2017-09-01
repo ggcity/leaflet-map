@@ -1,5 +1,6 @@
 import { Element as PolymerElement } from '../../@polymer/polymer/polymer-element.js';
 import { FlattenedNodesObserver } from '../../@polymer/polymer/lib/utils/flattened-nodes-observer.js';
+import '../../@ggcity/leaflet-iife/dist/leaflet.js';
 
 export class LeafletMap extends PolymerElement {
   static get template() {
@@ -24,11 +25,6 @@ export class LeafletMap extends PolymerElement {
 
   static get properties() {
     return {
-      leaflet: {
-        type: Object,
-        notify: true,
-        readonly: true
-      },
       map: Object,
       latitude: {
         type: Number
@@ -59,22 +55,6 @@ export class LeafletMap extends PolymerElement {
   connectedCallback() {
     super.connectedCallback();
 
-    this.loaded = window.L && true;
-
-    if (!this.loaded) {
-      let script = document.createElement('script');
-      script.src = 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.js';
-      script.onload = this._initializeMap.bind(this);
-
-      document.getElementsByTagName('head')[0].appendChild(script);
-
-      this.loaded = true;
-    }
-  }
-
-  _initializeMap() {
-    this.leaflet = L;
-    
     this.map = L.map(this.$.map, {
       center: [this.latitude, this.longitude],
       zoom: this.zoom,
@@ -96,7 +76,6 @@ export class LeafletMap extends PolymerElement {
   
   _bindDependencies({addedNodes}) {
     addedNodes.forEach(n => {
-      n.leaflet = this.leaflet;
       n.map = this.map;
     });
   }

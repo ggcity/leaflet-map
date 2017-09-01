@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@ggcity/leaflet-iife@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ggcity/leaflet-iife/-/leaflet-iife-1.2.0.tgz#76780202f9c40d581f4c79ca803299833ef5f058"
+
 "@polymer/polymer@next":
   version "3.0.0-pre.1"
   resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.0-pre.1.tgz#9fc26b5259aad9265f324ced02de715991d2eabe"
@@ -16,7 +20,3 @@
 "@webcomponents/webcomponentsjs@^1.0.0":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.0.9.tgz#afbff641692f444785f076a9be76d59455855138"
-
-leaflet@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"

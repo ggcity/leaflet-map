@@ -9,6 +9,6 @@
   "flat": true,
   "dependencies": {
     "@polymer/polymer": "next",
-    "leaflet": "^1.2.0"
+    "@ggcity/leaflet-iife": "^1.2.0"
   }
 }

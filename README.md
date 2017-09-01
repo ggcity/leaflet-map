@@ -12,16 +12,18 @@ This currently comes in as pure ES6 only.
 Usage
 -----
 
-    <script type="module" src="./node_modules/@ggcity/leaflet-map/leaflet-map.js"></script>
+```html
+<script type="module" src="./node_modules/@ggcity/leaflet-map/leaflet-map.js"></script>
 
-    <leaflet-map
-      latitude="33.778724"
-      longitude="-117.960058"
-      zoom="13"
-      min-zoom="11"
-      max-zoom="19"
-      attribution-prefix="City of Garden Grove"
-    ></leaflet-map>
+<leaflet-map
+  latitude="33.778724"
+  longitude="-117.960058"
+  zoom="13"
+  min-zoom="11"
+  max-zoom="19"
+  attribution-prefix="City of Garden Grove"
+></leaflet-map>
+```
 
 Maintainers
 -----------
