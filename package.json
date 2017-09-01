@@ -1,5 +1,5 @@
 {
-  "name": "leaflet-map",
+  "name": "@ggcity/leaflet-map",
   "version": "0.1.0",
   "description": "Leaflet map web component",
   "main": "index.js",

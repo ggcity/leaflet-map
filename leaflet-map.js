@@ -1,4 +1,5 @@
-import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js';
+import { Element as PolymerElement } from '../../@polymer/polymer/polymer-element.js';
+import { FlattenedNodesObserver } from '../../@polymer/polymer/lib/utils/flattened-nodes-observer.js';
 
 export class LeafletMap extends PolymerElement {
   static get template() {
@@ -15,12 +16,20 @@ export class LeafletMap extends PolymerElement {
         }
       </style>
 
-      <div id="map"></div>
+      <div id="map">
+        <slot></slot>
+      </div>
     `;
   }
 
   static get properties() {
     return {
+      leaflet: {
+        type: Object,
+        notify: true,
+        readonly: true
+      },
+      map: Object,
       latitude: {
         type: Number
       },
@@ -38,7 +47,8 @@ export class LeafletMap extends PolymerElement {
       },
       attributionPrefix: {
         type: String
-      }
+      },
+      _childrenObserver: Object
     }
   }
 
@@ -63,7 +73,9 @@ export class LeafletMap extends PolymerElement {
   }
 
   _initializeMap() {
-    let map = L.map(this.$.map, {
+    this.leaflet = L;
+    
+    this.map = L.map(this.$.map, {
       center: [this.latitude, this.longitude],
       zoom: this.zoom,
       inertiaDeceleration: 3000,
@@ -75,13 +87,18 @@ export class LeafletMap extends PolymerElement {
 
     if (this.attributionPrefix) {
       let attrControl = L.control.attribution({ prefix: this.attributionPrefix });
-      map.addControl(attrControl);
+      this.map.addControl(attrControl);
     }
 
-    L.tileLayer('//www.ci.garden-grove.ca.us/tileserver/styles/gg-basic/{z}/{x}/{y}.png', {
-      maxZoom: 19, 
-      attribution: '&copy; OpenStreetMap'
-    }).addTo(map);
+    let slot = this.shadowRoot.querySelector('slot');
+    this._childrenObserver = new FlattenedNodesObserver(slot, this._bindDependencies.bind(this));
+  }
+  
+  _bindDependencies({addedNodes}) {
+    addedNodes.forEach(n => {
+      n.leaflet = this.leaflet;
+      n.map = this.map;
+    });
   }
 }
 
