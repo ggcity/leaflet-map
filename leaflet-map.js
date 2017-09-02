@@ -1,14 +1,11 @@
-import { Element as PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-import { FlattenedNodesObserver } from '../../@polymer/polymer/lib/utils/flattened-nodes-observer.js';
-import '../../@ggcity/leaflet-iife/dist/leaflet.js';
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
+import { Map, Control } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 export class LeafletMap extends PolymerElement {
   static get template() {
     return `
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-   crossorigin=""/>
-
       <style>
         #map {
           width: 100%;
@@ -55,7 +52,7 @@ export class LeafletMap extends PolymerElement {
   connectedCallback() {
     super.connectedCallback();
 
-    this.map = L.map(this.$.map, {
+    this.map = new Map(this.$.map, {
       center: [this.latitude, this.longitude],
       zoom: this.zoom,
       inertiaDeceleration: 3000,
@@ -66,7 +63,7 @@ export class LeafletMap extends PolymerElement {
     });
 
     if (this.attributionPrefix) {
-      let attrControl = L.control.attribution({ prefix: this.attributionPrefix });
+      let attrControl = new Control.Attribution({ prefix: this.attributionPrefix });
       this.map.addControl(attrControl);
     }
 
@@ -74,6 +71,7 @@ export class LeafletMap extends PolymerElement {
     this._childrenObserver = new FlattenedNodesObserver(slot, this._bindDependencies.bind(this));
   }
   
+  /* Shitty way of passing value to children */
   _bindDependencies({addedNodes}) {
     addedNodes.forEach(n => {
       n.map = this.map;
