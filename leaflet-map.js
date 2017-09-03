@@ -1,5 +1,5 @@
-import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
-import { FlattenedNodesObserver } from '@polymer/polymer/lib/utils/flattened-nodes-observer';
+import { Element as PolymerElement } from '../../@polymer/polymer/polymer-element.js';
+import { FlattenedNodesObserver } from '../../@polymer/polymer/lib/utils/flattened-nodes-observer.js';
 import { Map, Control } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
