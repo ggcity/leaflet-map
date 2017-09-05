@@ -1,6 +1,13 @@
 import { Element as PolymerElement } from '../../@polymer/polymer/polymer-element.js';
 import { FlattenedNodesObserver } from '../../@polymer/polymer/lib/utils/flattened-nodes-observer.js';
-import { Map, Control } from 'leaflet';
+import { Map } from '../../leaflet/src/map';
+import { Attribution } from '../../leaflet/src/control/Control.Attribution.js'
+
+// Need these side effects
+import '../../leaflet/src/control';
+import '../../leaflet/src/layer';
+
+// Leaflet styles for webpack
 import 'leaflet/dist/leaflet.css';
 
 export class LeafletMap extends PolymerElement {
@@ -63,7 +70,7 @@ export class LeafletMap extends PolymerElement {
     });
 
     if (this.attributionPrefix) {
-      let attrControl = new Control.Attribution({ prefix: this.attributionPrefix });
+      let attrControl = new Attribution({ prefix: this.attributionPrefix });
       this.map.addControl(attrControl);
     }
 

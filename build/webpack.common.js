@@ -5,11 +5,12 @@ module.exports = {
   entry: './leaflet-map.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   },
   resolve: {
     alias: {
-      '../../@polymer': '/var/www/html/@ggcity/leaflet-map/node_modules/@polymer'
+      '../../@polymer': '/var/www/html/@ggcity/leaflet-map/node_modules/@polymer',
+      '../../leaflet': '/var/www/html/@ggcity/leaflet-map/node_modules/leaflet'
     }
   },
   module: {
