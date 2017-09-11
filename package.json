@@ -1,6 +1,6 @@
 {
   "name": "@ggcity/leaflet-map",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Leaflet map web component",
   "main": "dist/bundle.js",
   "repository": "https://github.com/ggcity/leaflet-map",

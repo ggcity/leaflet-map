@@ -29,7 +29,10 @@ export class LeafletMap extends PolymerElement {
 
   static get properties() {
     return {
-      map: Object,
+      map: {
+        type: Object,
+        notify: true
+      },
       latitude: {
         type: Number
       },
