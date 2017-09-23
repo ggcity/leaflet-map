@@ -48,6 +48,10 @@ export class LeafletMap extends PolymerElement {
       maxZoom: {
         type: Number
       },
+      zoomControl: {
+        type: Boolean,
+        value: false
+      },
       attributionPrefix: {
         type: String
       },
@@ -65,6 +69,7 @@ export class LeafletMap extends PolymerElement {
     this.map = new Map(this.$.map, {
       center: [this.latitude, this.longitude],
       zoom: this.zoom,
+      zoomControl: this.zoomControl,
       inertiaDeceleration: 3000,
       inertiaMaxSpeed: 3000,
       attributionControl: false,
