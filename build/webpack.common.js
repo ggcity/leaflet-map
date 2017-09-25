@@ -2,19 +2,32 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './leaflet-map.js',
+  entry: '../leaflet-map.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
     alias: {
-      '../../@polymer': '/var/www/html/@ggcity/leaflet-map/node_modules/@polymer',
-      '../../leaflet': '/var/www/html/@ggcity/leaflet-map/node_modules/leaflet'
+      '../../@polymer': './node_modules/@polymer',
+      '../../leaflet': './node_modules/leaflet'
     }
   },
   module: {
     rules: [
+      { 
+        test: /\.js$/, 
+        loader: "babel-loader",
+        include: [
+          path.join(__dirname, '..'),
+          /\/node_modules\/@polymer/
+        ],
+        options: {
+          presets: [
+            'babel-preset-env'
+          ].map(require.resolve)
+        }
+      },
       {
         test: /\.css$/,
         use: [

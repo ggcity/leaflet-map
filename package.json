@@ -10,19 +10,9 @@
     "start": "webpack-dev-server --config build/webpack.dev.js",
     "build": "webpack --config build/webpack.prod.js"
   },
+  "flat": true,
   "dependencies": {
     "@polymer/polymer": "next",
     "leaflet": "^1.2.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-minify-webpack-plugin": "^0.2.0",
-    "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.7",
-    "file-loader": "^0.11.2",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.5.5",
-    "webpack-merge": "^4.1.0"
   }
 }

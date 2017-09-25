@@ -7,12 +7,10 @@ import { Attribution } from '../../leaflet/src/control/Control.Attribution.js'
 import '../../leaflet/src/control';
 import '../../leaflet/src/layer';
 
-// Leaflet styles for webpack
-import 'leaflet/dist/leaflet.css';
-
 export class LeafletMap extends PolymerElement {
   static get template() {
     return `
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
       <style>
         #map {
           width: 100%;
