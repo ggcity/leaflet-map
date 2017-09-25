@@ -1,14 +1,18 @@
 {
   "name": "@ggcity/leaflet-map",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Leaflet map web component",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "repository": "https://github.com/ggcity/leaflet-map",
   "author": "Rachot Moragraan",
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "webpack-dev-server --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js"
+  },
   "flat": true,
   "dependencies": {
     "@polymer/polymer": "next",
-    "@ggcity/leaflet-iife": "^1.2.0"
+    "leaflet": "^1.2.0"
   }
 }
