@@ -11,6 +11,11 @@ export class LeafletMap extends PolymerElement {
   static get template() {
     return `
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+      <!-- FIXME: Figure out Shadow DOM so this doesn't have to be included here -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" media="screen">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" media="screen">
+
       <style>
         #map {
           width: 100%;
