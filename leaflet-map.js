@@ -77,13 +77,16 @@ export class LeafletMap extends PolymerElement {
       inertiaMaxSpeed: 3000,
       attributionControl: false,
       minZoom: this.minZoom,
-      maxZoom: this.maxZoom
+      maxZoom: this.maxZoom,
+      tapTolerance: 40
     });
 
     if (this.attributionPrefix) {
       let attrControl = new Attribution({ prefix: this.attributionPrefix });
       this.map.addControl(attrControl);
     }
+
+    // L.marker([this.latitude, this.longitude]).addTo(this.map);
 
     let slot = this.shadowRoot.querySelector('slot');
     this._childrenObserver = new FlattenedNodesObserver(slot, this._bindDependencies.bind(this));
