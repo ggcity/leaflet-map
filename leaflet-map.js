@@ -10,7 +10,7 @@ import '../../leaflet/src/layer';
 export class LeafletMap extends PolymerElement {
   static get template() {
     return `
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 
       <!-- FIXME: Figure out Shadow DOM so this doesn't have to be included here -->
       <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" media="screen">
@@ -78,9 +78,10 @@ export class LeafletMap extends PolymerElement {
       attributionControl: false,
       minZoom: this.minZoom,
       maxZoom: this.maxZoom,
-      tapTolerance: 40
+      tapTolerance: 40,
+      tap: false
     });
-
+    
     if (this.attributionPrefix) {
       let attrControl = new Attribution({ prefix: this.attributionPrefix });
       this.map.addControl(attrControl);
